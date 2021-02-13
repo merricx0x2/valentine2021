@@ -80,8 +80,8 @@ if (!document.getElementById(cssId))
     link.id   = cssId;
     link.rel  = 'stylesheet';
     link.type = 'text/css';
-    link.href = 'https://merricx0x2.github.io/valentine2021/style.css';
-    //link.href = 'style.css';
+    //link.href = 'https://merricx0x2.github.io/valentine2021/style.css';
+    link.href = 'style.css';
     link.media = 'all';
     head.appendChild(link);
 }
@@ -116,11 +116,18 @@ function updateClock() {
 }
 
 
-function fadeOut(el){
+function fadeOut(el, speed){
     el.style.opacity = 1;
+    if(speed == 'fast'){
+        var spd = .1;
+    } else if(speed == 'normal'){
+        var spd = .05;
+    } else {
+        var spd = .01;
+    }
 
     (function fade() {
-        if ((el.style.opacity -= .05) < 0) {
+        if ((el.style.opacity -= spd) < 0) {
             el.style.display = "none";
         } else {
             requestAnimationFrame(fade);
@@ -128,13 +135,20 @@ function fadeOut(el){
     })();
 };
 
-function fadeIn(el, display){
+function fadeIn(el, display, speed){
     el.style.opacity = 0;
     el.style.display = display || "block";
+    if(speed == 'fast'){
+        var spd = .1;
+    } else if(speed == 'normal'){
+        var spd = .05;
+    } else {
+        var spd = .01;
+    }
 
     (function fade() {
         var val = parseFloat(el.style.opacity);
-        if (!((val += .05) > 1)) {
+        if (!((val += spd) > 1)) {
             el.style.opacity = val;
             requestAnimationFrame(fade);
         }
@@ -201,7 +215,7 @@ function main(){
 
     var loveSince = document.createElement("div");
     loveSince.className = "love-since hide";
-    loveSince.innerHTML = "Do you know?<br>I've loved you for:";
+    loveSince.innerHTML = "Did you know?<br>I've fallen in love with you for:";
     var timerDiv = document.createElement("div");
     timerDiv.id = "timer";
     loveSince.appendChild(timerDiv);
@@ -210,11 +224,13 @@ function main(){
 
     var closer = document.createElement("div");
     closer.className = "closer hide";
-    closer.innerHTML = `<p>Happy valentine baby<br>I just wanna say that you're the most wonderful girl that really changed my world.<br>
-    For this valentine, please kindly accept this simple gift for you.<br>I Love you so much...<3<br><br>
+    closer.innerHTML = `<div class="closer-front">Happy Valentine!<br><button id="btn-open-letter">Open letter</button></div>
+    <p class="hide">Happy valentine babyy<br>I just wanna say that you're the most wonderful girl that really changed my world.<br>
+    Thanks for always supporting me, always being by my side, and always understanding my exceptional ridicolousity<br>
+    As the gratitude for having you, please kindly accept this simple gift for you.<br>I Love you sooo much...<3<br><br>
     Sincerely,<br>
     Your dearest<br></p>
-    <button class="btn btn3">Open gift</button>`;
+    <button class="btn btn3 hide">Open gift</button>`;
     document.body.appendChild(closer);
 
     var footer = document.createElement("div");
@@ -258,8 +274,14 @@ function main(){
     footer.appendChild(btn2);
     document.body.appendChild(footer);
 
-    var btn3 = document.querySelector(".btn3");
+    var btn3 = document.querySelector("#btn-open-letter");
     btn3.onclick = function(){
+        document.querySelector(".closer-front").className = "hide";
+        document.querySelector(".closer p").className = "";
+        document.querySelector(".btn3").className = "btn btn3";
+    }
+    var btn4 = document.querySelector(".btn3");
+    btn4.onclick = function(){
         document.querySelector(".closer").style = "";
         typeAsciiArt();
     }
