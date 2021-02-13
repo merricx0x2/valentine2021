@@ -210,7 +210,7 @@ function main(){
 
     var closer = document.createElement("div");
     closer.className = "closer hide";
-    closer.innerHTML = `<p>I just wanna say that you're the most wonderful girl that really changed my world.<br>
+    closer.innerHTML = `<p>Happy valentine baby<br>I just wanna say that you're the most wonderful girl that really changed my world.<br>
     For this valentine, please kindly accept this simple gift for you.<br>I Love you so much...<3<br><br>
     Sincerely,<br>
     Your dearest<br></p>
