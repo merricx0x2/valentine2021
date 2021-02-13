@@ -80,8 +80,8 @@ if (!document.getElementById(cssId))
     link.id   = cssId;
     link.rel  = 'stylesheet';
     link.type = 'text/css';
-    link.href = 'https://pastebin.com/dl/nRtQTJkW';
-    //link.href = 'style.css';
+    //link.href = 'https://merricx0x2.github.io/valentine2021/style.css';
+    link.href = 'style.css';
     link.media = 'all';
     head.appendChild(link);
 }
