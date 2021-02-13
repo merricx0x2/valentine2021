@@ -230,7 +230,7 @@ function main(){
     As the gratitude for having you, please kindly accept this simple gift for you.<br>I Love you sooo much...<3<br><br>
     Sincerely,<br>
     Your dearest<br></p>
-    <button class="btn btn3 hide">Open gift</button>`;
+    <button class="btn btn3 hide" style="width: 150px;">Open gift</button>`;
     document.body.appendChild(closer);
 
     var footer = document.createElement("div");
